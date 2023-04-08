@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
+});
+
+Route::get('/template', function () {
+    return view('Sailor.index');
 });
 
 
