@@ -7,21 +7,21 @@
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
-        @can('add', app($dataType->model_name))
+        {{-- @can('add', app($dataType->model_name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
                 <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
             </a>
         @endcan
         @can('delete', app($dataType->model_name))
             @include('voyager::partials.bulk-delete')
-        @endcan
-        @can('edit', app($dataType->model_name))
+        @endcan --}}
+        {{-- @can('edit', app($dataType->model_name))
             @if(!empty($dataType->order_column) && !empty($dataType->order_display_column))
                 <a href="{{ route('voyager.'.$dataType->slug.'.order') }}" class="btn btn-primary btn-add-new">
                     <i class="voyager-list"></i> <span>{{ __('voyager::bread.order') }}</span>
                 </a>
             @endif
-        @endcan
+        @endcan --}}
         @can('delete', app($dataType->model_name))
             @if($usesSoftDeletes)
                 <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
@@ -36,8 +36,22 @@
     </div>
 @stop
 
-{{-- @section('content')
+ @section('content')
     <div class="page-content browse container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info center">
+                    <div class="panel-heading">
+                        MULAI CEK QUALITY
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="get"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="page-content browse container-fluid">
         @include('voyager::alerts')
         <div class="row">
             <div class="col-md-12">
@@ -288,10 +302,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    {{-- Single delete modal --}
-    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
+    {{-- Single delete modal --}}
+    {{-- <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -308,8 +322,8 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-@stop --}}
+    </div><!-- /.modal --> --}}
+@stop
 
 @section('css')
 @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
