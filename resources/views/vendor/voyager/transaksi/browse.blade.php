@@ -39,16 +39,44 @@
  @section('content')
     <div class="page-content browse container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info center">
-                    <div class="panel-heading">
-                        MULAI CEK QUALITY
+            <div class="container">
+                <div class="row">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Buat Transaksi Baru</div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for>Line Proses</label>
+                        <select class="form-control" name="lineproses" id="line" v-model="form.line">
+                          {{-- <option v-for="proses in proseses" :key="proses" :value="proses">{{ proses }}</option> --}}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for>Tanggal Transaksi</label>
+                        <input
+                          v-model="form.report_date"
+                          type="date"
+                          name="report_date"
+                          id="report_date"
+                          class="form-control"
+                        />
+                      </div>
+
+                      <button @click="next" type="button" class="btn btn-success">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{-- <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="text-align:center; padding:2px;">
+                        <h4>MULAI CEK QUALITY</h4>
                     </div>
                     <div class="panel-body">
-                        <form action="" method="get"></form>
+                      Panel content
                     </div>
-                </div>
-            </div>
+                    <div class="panel-footer">Panel footer</div>
+                  </div>
+            </div> --}}
         </div>
     </div>
     {{-- <div class="page-content browse container-fluid">
