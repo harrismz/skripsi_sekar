@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
+use Illuminate\Support\Facades\Auth;
 
 class Proses extends Model
 {
@@ -16,8 +17,15 @@ class Proses extends Model
         parent::boot();
 
         static::creating(function($model){
-            if(auth()->check()){
-                $model->dibuat_oleh = auth()->user()->nama;
+            if($user = Auth::user()){
+                $model->dibuat_oleh = $user->name;
+                $model->diedit_oleh = "belum pernah edit";
+            }
+        });
+
+        static::updating(function($model){
+            if($user = Auth::user()){
+                $model->diedit_oleh = $user->name;
             }
         });
     }

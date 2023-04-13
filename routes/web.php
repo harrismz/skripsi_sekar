@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProsesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,6 @@ Route::get('/template', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::get('/userlogin',[ProsesController::class,'index']);
 });
