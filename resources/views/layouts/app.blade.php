@@ -206,10 +206,10 @@
           <div class="col-md-12">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-1.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Berdirinya Yamaha</a></h4>
                         <p>Nippon gakki didirikan oleh Torakusu Yamaha.</p>
                     </div>
@@ -222,10 +222,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-2.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Yamaha Memproduksi Piano</a></h4>
                         <p>Yamaha mulai memproduksi Piano Tegak dan Piano Akustik.</p>
                     </div>
@@ -238,10 +238,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-3.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Baling-Baling Pesawat Terbang</a></h4>
                         <p>Yamaha membuat baling-baling untuk Pesawat Terbang.</p>
                     </div>
@@ -254,10 +254,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-4.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Yamaha Music School</a></h4>
                         <p>Yamaha membuka pertama kali kelas music organ.</p>
                     </div>
@@ -270,10 +270,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-5.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Terbentuknya Yamaha Motor</a></h4>
                         <p>Terbentuknya Yamaha Motor, YA-1 merupakan produk pertama yang di produksi dan menjuarai balapan di Fuji &amp; Assen.</p>
                     </div>
@@ -286,10 +286,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-6.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Memperluas Bisnisnya ke Pasar Global</a></h4>
                         <p>Yamaha mulai memperluas bisnisnya ke pasar global, dengan menjual produk ke belahan negara lain, yang ditandai dengan didirikannya Yamaha International Corporation (YIC) di Amerika Serikat.</p>
                     </div>
@@ -302,10 +302,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-7.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Sepeda Motor Yamaha Menjuarai Kejuaraan International</a></h4>
                         <p>Sepeda motor Yamaha memenangkan berbagai kejuaraan internasional, Meraih gelar pabrikan di semua kelas road race World GP, 125cc, 250cc, 350cc, dan 500cc.</p>
                     </div>
@@ -318,10 +318,10 @@
           <div class="col-md-12 mt-4 mt-md-0">
             <div class="icon-box">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-4">
                        <img src="assets/img/about/history-8.jpg" alt="History Image 1" class="main-history-img" decoding="async" loading="lazy">
                     </div>
-                    <div class="col-8">
+                    <div class="col-7">
                         <h4><a href="#">Berdirinya Yamaha Motor di Indonesia</a></h4>
                         <p>PT. Yamaha Indonesia Motor Manufacturing (YIMM) didirikan di Indonesia sebagai pembuat suku cadang sepeda motor.</p>
                     </div>
