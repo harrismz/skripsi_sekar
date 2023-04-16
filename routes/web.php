@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProsesController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
     Route::get('/userlogin',[ProsesController::class,'index']);
+    Route::get('/transaksi',[TransaksiController::class, 'index'])->name("voyager.transaksi.index");
 });

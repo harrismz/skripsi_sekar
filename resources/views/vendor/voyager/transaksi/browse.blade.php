@@ -1,11 +1,11 @@
 @extends('voyager::master')
 
-@section('page_title', __('voyager::generic.viewing').' '.$dataType->getTranslatedAttribute('display_name_plural'))
+@section('page_title', __('voyager::generic.viewing').' '.'Transaksi')
 
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
+            <i class="voyager-receipt"></i>  Transaksi
         </h1>
         {{-- @can('add', app($dataType->model_name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
@@ -22,17 +22,17 @@
                 </a>
             @endif
         @endcan --}}
-        @can('delete', app($dataType->model_name))
+        {{-- @can('delete', app('App\Models\Transaksi'))
             @if($usesSoftDeletes)
                 <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
             @endif
-        @endcan
-        @foreach($actions as $action)
+        @endcan --}}
+        {{-- @foreach($actions as $action)
             @if (method_exists($action, 'massAction'))
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
-        @endforeach
-        @include('voyager::multilingual.language-selector')
+        @endforeach --}}
+        {{-- @include('voyager::multilingual.language-selector') --}}
     </div>
 @stop
 
@@ -41,19 +41,25 @@
         <div class="row">
             <div class="container">
                 <div class="row">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">Buat Transaksi Baru</div>
+                  <div class="panel panel-info">
+                    <div class="panel-heading" style="text-align:center;padding:5px">
+                        <h3> Buat Transaksi Baru </h3>
+                    </div>
                     <div class="panel-body">
                       <div class="form-group">
                         <label for>Line Proses</label>
-                        <select class="form-control" name="lineproses" id="line" v-model="form.line">
-                          {{-- <option v-for="proses in proseses" :key="proses" :value="proses">{{ proses }}</option> --}}
+                        <select class="form-control" name="lineproses" id="proses">
+                            @foreach ($dataProses as $proses)
+                                <option value="{{$proses->id}}">{{$proses->nama}}</option>
+                            @endforeach
                         </select>
+
+
                       </div>
                       <div class="form-group">
                         <label for>Tanggal Transaksi</label>
                         <input
-                          v-model="form.report_date"
+                          {{-- v-model="form.report_date" --}}
                           type="date"
                           name="report_date"
                           id="report_date"
@@ -61,7 +67,7 @@
                         />
                       </div>
 
-                      <button @click="next" type="button" class="btn btn-success">Submit</button>
+                      <button type="button" class="btn btn-success float-right">Mulai</button>
                     </div>
                   </div>
                 </div>
@@ -353,18 +359,18 @@
     </div><!-- /.modal --> --}}
 @stop
 
-@section('css')
+{{-- @section('css')
 @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
     <link rel="stylesheet" href="{{ voyager_asset('lib/css/responsive.dataTables.min.css') }}">
 @endif
-@stop
+@stop --}}
 
 @section('javascript')
     <!-- DataTables -->
-    @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
+    {{-- @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
         <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
-    @endif
-    <script>
+    @endif --}}
+    {{-- <script>
         $(document).ready(function () {
             @if (!$dataType->server_side)
                 var table = $('#dataTable').DataTable({!! json_encode(
@@ -433,5 +439,5 @@
             });
             $('.selected_ids').val(ids);
         });
-    </script>
+    </script> --}}
 @stop
