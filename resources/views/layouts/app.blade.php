@@ -60,8 +60,28 @@
             </ul>
           </li>
           <li><a href="#footer">Kontak</a></li>
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('admin/login') }}">Login</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/transaksi') }}">Transaksi</a>
+                </li>
+                <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a class="nav-link" href="#">{{ Auth::user()->name }}</a></li>
+                        <li><a href="{{ route('voyager.logout') }}" class="nav-link">Logout</a></li>
+                        {{-- <li><a class="nav-link" href="{{ route('voyager.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('voyager.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form></li> --}}
 
-          <li><a href="{{ url('admin/login') }}" class="getstarted">Login</a></li>
+                    </ul>
+                </li>
+
+            @endguest
+          {{-- <li><a href="{{ url('admin/login') }}" class="getstarted">Login</a></li> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
