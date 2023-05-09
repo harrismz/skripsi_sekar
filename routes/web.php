@@ -29,9 +29,9 @@ Route::get('/template', function () {
 Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('auth.register');
 Route::post('/register',[RegisterController::class,'register']);
 
-Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index");
-Route::post('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store");
-Route::any('/transaksi/quality_check/{last_id}',[TransaksiController::class,'show_quality_check'])->name("transaksi.quality_check");
+Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index")->middleware('auth');
+Route::post('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store")->middleware('auth');
+Route::any('/transaksi/quality_check/{last_id}',[TransaksiController::class,'show_quality_check'])->name("transaksi.quality_check")->middleware('auth');
 
 
 Route::group(['prefix' => 'admin'], function () {
