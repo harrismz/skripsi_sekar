@@ -148,8 +148,6 @@
             <div class="copyright">
                 &copy; Copyright <strong><span>PT. Yamaha Indonesia</span></strong>. All Rights Reserved
             </div>
-            <div class="credits">
-            </div>
         </div>
     </footer><!-- End Footer -->
 
