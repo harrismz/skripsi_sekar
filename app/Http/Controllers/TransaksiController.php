@@ -1,15 +1,14 @@
 <?php
-// namespace App\Http\Controllers\Voyager;
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Transaksi;
 use App\Models\Proses;
 use Illuminate\Http\Request;
-use Illuminate\Database\controllers\Controllers;
-use TCG\Voyager\Models\DataType;
+// use Illuminate\Database\controllers\Controllers;
+// use Illuminate\Http\Controllers\Controller;
+// use TCG\Voyager\Models\DataType;
 
-// use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
 class TransaksiController extends Controller
 {
@@ -23,18 +22,29 @@ class TransaksiController extends Controller
     public function index(Request $request){
         $data = Transaksi::all();
         $data_proses = Proses::all();
-        // return $data_proses;
-        return view('voyager::transaksi.browse', [
-            // 'dataType' => $this->getDataType(),
-            'dataTypeContent' => $data,
-            'dataProses' => $data_proses,
-            // 'isModelTranslatable' => false,
-        ]);
+        return view('transaksi',['data'=>$data,'dataProses'=>$data_proses]);
     }
 
-    public function getDataType(){
-        return DataType::where('slug','transaksi');
-    }
+    // public function index(Request $request){
+    //     $data = Transaksi::all();
+    //     $data_proses = Proses::all();
+    //     // return $data_proses;
+    //     return view('voyager::transaksi.create', [
+    //         // 'dataType' => $this->getDataType(),
+    //         'dataTypeContent' => $data,
+    //         'dataProses' => $data_proses,
+    //         // 'isModelTranslatable' => false,
+    //     ]);
+    // }
+
+    // public function getDataType(){
+    //     return DataType::where('slug','transaksi');
+    // }
+
+    // public function create(Request $request){
+    //     return parent::create($request);
+    // }
+
 
     // public function index(Request $request)
     // {

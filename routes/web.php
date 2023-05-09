@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('home');
 })->name('home');
 
 Route::get('/template', function () {
@@ -28,7 +28,7 @@ Route::get('/template', function () {
 Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('auth.register');
 Route::post('/register',[RegisterController::class,'register']);
 
-Route::get('/transaksi',[TransaksiController::class, 'create'])->name("transaksi.create");
+Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index");
 
 
 
@@ -43,5 +43,5 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('voyager.logout');
 
     Route::get('/userlogin',[ProsesController::class,'index']);
-    Route::get('/transaksi/create',[TransaksiController::class, 'create'])->name("voyager.transaksi.create");
+    // Route::get('/transaksi/create',[TransaksiController::class, 'create'])->name("voyager.transaksi.create");
 });
