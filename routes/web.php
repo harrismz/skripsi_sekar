@@ -32,7 +32,10 @@ Route::post('/register',[RegisterController::class,'register']);
 Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index")->middleware('auth');
 Route::post('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store")->middleware('auth');
 Route::any('/transaksi/quality_check/{last_id}',[TransaksiController::class,'show_quality_check'])->name("transaksi.quality_check")->middleware('auth');
-
+Route::get('/login',function(){
+    Auth::logout();
+    return redirect('/');
+})->name('login');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
