@@ -49,18 +49,18 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#hero" class="active">Halaman Utama</a></li>
+                    <li><a href="/#hero" class="active">Halaman Utama</a></li>
 
                     <li class="dropdown"><a href="#"><span>Tentang Yamaha</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#about">Misi</a></li>
-                            <li><a href="#clients">Slogan</a></li>
-                            <li><a href="#services">Sejarah</a></li>
+                            <li><a href="/#about">Misi</a></li>
+                            <li><a href="/#clients">Slogan</a></li>
+                            <li><a href="/#services">Sejarah</a></li>
 
                         </ul>
                     </li>
-                    <li><a href="#footer">Kontak</a></li>
+                    <li><a href="/#footer">Kontak</a></li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('admin/login') }}">Login</a>
@@ -89,61 +89,11 @@
 
         </div>
     </header>
-
-    @yield('content');
+    <div class="mb-5"></div>
+    @yield('content')
     <!-- ======= Footer ======= -->
+    <div class="mb-5"></div>
     <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-info">
-                            <h3>Yamaha Head Office</h3>
-                            <p>
-                                Jl. DR KRT Radjiman Widyodiningrat RT/RW 009-06 <br>
-                                Rawa Terate, Cakung Jakarta Timur 13920 Indonesia.<br><br>
-                                <strong>Phone:</strong> 021-2457-5555 <br>
-                                <strong>Email:</strong> contact_center@yamaha-motor.co.id<br>
-                            </p>
-                            <div class="social-links mt-3">
-                                <a href="www.twitter.com/yamahaindonesia" class="twitter"><i
-                                        class="bx bxl-twitter"></i></a>
-                                <a href="www.facebook.com/yamaholigan" class="facebook"><i
-                                        class="bx bxl-facebook"></i></a>
-                                <a href="instagram.com/yamahaindonesia" class="instagram"><i
-                                        class="bx bxl-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-md-6 footer-links">
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#hero">Hamalan Utama</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#about">Tentang Yamaha Indonesia</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#about">Misi</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#clients">Slogan</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#footer">Kontak</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Kritik dan saran</h4>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
         <div class="container">
             <div class="copyright">
                 &copy; Copyright <strong><span>PT. Yamaha Indonesia</span></strong>. All Rights Reserved
@@ -169,7 +119,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    @yield('script');
+    @yield('script')
 
 </body>
 

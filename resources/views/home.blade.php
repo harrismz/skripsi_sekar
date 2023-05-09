@@ -269,4 +269,58 @@
     </section><!-- End Services Section -->
 
   </main><!-- End #main -->
+
+
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-info">
+                                <h3>Yamaha Head Office</h3>
+                                <p>
+                                    Jl. DR KRT Radjiman Widyodiningrat RT/RW 009-06 <br>
+                                    Rawa Terate, Cakung Jakarta Timur 13920 Indonesia.<br><br>
+                                    <strong>Phone:</strong> 021-2457-5555 <br>
+                                    <strong>Email:</strong> contact_center@yamaha-motor.co.id<br>
+                                </p>
+                                <div class="social-links mt-3">
+                                    <a href="www.twitter.com/yamahaindonesia" class="twitter"><i
+                                            class="bx bxl-twitter"></i></a>
+                                    <a href="www.facebook.com/yamaholigan" class="facebook"><i
+                                            class="bx bxl-facebook"></i></a>
+                                    <a href="instagram.com/yamahaindonesia" class="instagram"><i
+                                            class="bx bxl-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer-links">
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Links</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#hero">Hamalan Utama</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#about">Tentang Yamaha Indonesia</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#about">Misi</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#clients">Slogan</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#footer">Kontak</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 footer-newsletter">
+                            <h4>Kritik dan saran</h4>
+                            <form action="" method="post">
+                                <input type="email" name="email"><input type="submit" value="Subscribe">
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
 @endsection

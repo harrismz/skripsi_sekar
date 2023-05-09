@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProsesController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\QualityController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,8 @@ Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name
 Route::post('/register',[RegisterController::class,'register']);
 
 Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index");
-
+Route::post('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store");
+Route::any('/transaksi/quality_check/{last_id}',[TransaksiController::class,'show_quality_check'])->name("transaksi.quality_check");
 
 
 Route::group(['prefix' => 'admin'], function () {

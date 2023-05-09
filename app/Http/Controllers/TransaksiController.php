@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Komponen;
+use App\Models\MainTransaksi;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Transaksi;
 use App\Models\Proses;
@@ -17,12 +19,12 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $model = Transaksi::class;
+    // protected $model = Transaksi::class;
 
     public function index(Request $request){
-        $data = Transaksi::all();
+        // $data = Transaksi::all();
         $data_proses = Proses::all();
-        return view('transaksi',['data'=>$data,'dataProses'=>$data_proses]);
+        return view('transaksi',['dataProses'=>$data_proses]);
     }
 
     // public function index(Request $request){
@@ -108,7 +110,32 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $check_komponen = Komponen::all();
+        $store = new MainTransaksi;
+        $store->tanggal_transaksi = $request->report_date;
+        $store->proses_id = $request->lineproses;
+        $store->dibuat_oleh = auth::user()->name;
+        $store->save();
+
+        $lastId = $store->id;
+
+
+        $parameter = collect($request)->merge(collect($check_komponen));
+        // return $this->show_quality_check($parameter,$lastId);
+        return redirect()->route('transaksi.quality_check',['last_id'=>$lastId,'parameter'=> $parameter]);
+        // return $check_komponen;
+        // $data_ceklist = [];
+        // foreach ($check_komponen as $key => $value) {
+
+        // }
+
+        // $this->checklist($request,$check_komponen);
+    }
+
+    public function show_quality_check(Request $request,$id){
+        $main_transaksi = new MainTransaksi;
+        $data = $main_transaksi::where('id',$id);
+        return $data;
     }
 
     /**
