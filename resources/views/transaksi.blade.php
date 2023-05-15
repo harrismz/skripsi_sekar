@@ -27,6 +27,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for>Model</label>
+                                    <select class="form-control" name="model" id="model">
+                                        @foreach ($dataProses as $proses)
+                                            <option value="{{$proses->id}}">{{$proses->model}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                   <label for>Tanggal Transaksi</label>
                                   <input
                                     type="date"
