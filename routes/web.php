@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/template', function () {
     return view('Sailor.index');
 });
-
+Route::get('/jam',[TransaksiController::class,'jam'])->name('jam');
 Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('auth.register');
 Route::post('/register',[RegisterController::class,'register']);
 
