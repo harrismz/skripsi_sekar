@@ -30,7 +30,8 @@ Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name
 Route::post('/register',[RegisterController::class,'register']);
 
 Route::get('/transaksi',[TransaksiController::class, 'index'])->name("transaksi.index")->middleware('auth');
-Route::post('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store")->middleware('auth');
+Route::any('/transaksi/store',[TransaksiController::class,'store'])->name("transaksi.store")->middleware('auth');
+Route::any('/transaksi/simpan',[TransaksiController::class,'simpan'])->name("transaksi.simpan")->middleware('auth');
 Route::any('/transaksi/quality_check/{last_id}',[TransaksiController::class,'show_quality_check'])->name("transaksi.quality_check")->middleware('auth');
 Route::get('/login',function(){
     Auth::logout();
