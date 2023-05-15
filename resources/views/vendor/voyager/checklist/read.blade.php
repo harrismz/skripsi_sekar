@@ -5,7 +5,8 @@
         <div class="panel panel-heading bg-info">
             <div  class="panel-title">
                 <h3>Checklist {{ $data['main_transaksi'][0]['nama'] }}</h3>
-                <small> tanggal : {{ $data['main_transaksi'][0]['tanggal_transaksi'] }}</small>
+                <small> Model : {{ $data['main_transaksi'][0]['model'] }}</small>
+                <small> Tanggal : {{ $data['main_transaksi'][0]['tanggal_transaksi'] }}</small>
             </div>
 
         </div>
@@ -44,18 +45,16 @@
                         </tr>
 
                     @endforeach
-                    @if(isset($data['main_transaksi'][0]['diverifikasi_oleh']))
-                        <tr>
-                            <td class="text-center"><b>TOTAL OK</b></td>
-                            <td><b>: {{ $data['total_ok'] }}</b></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><b>TOTAL NG</b></td>
-                            <td><b>: {{ $data['total_ng'] }}</b></td>
-                            <td></td>
-                        </tr>
-                    @endif
+                    <tr>
+                        <td class="text-center"><b>TOTAL OK</b></td>
+                        <td><b>: {{ $data['total_ok'] }}</b></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><b>TOTAL NG</b></td>
+                        <td><b>: {{ $data['total_ng'] }}</b></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
             @if(!isset($data['main_transaksi'][0]['diverifikasi_oleh']))

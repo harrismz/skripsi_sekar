@@ -159,7 +159,7 @@ class TransaksiController extends Controller
         // }
 
 
-        return view('voyager.checklist');
+        return $this->verification_show($request->input('main_transaksi_id'));
 
     }
     /**
