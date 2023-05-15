@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Transaksi;
 use App\Models\Proses;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 // use Illuminate\Database\controllers\Controllers;
 // use Illuminate\Http\Controllers\Controller;
 // use TCG\Voyager\Models\DataType;
@@ -154,7 +155,7 @@ class TransaksiController extends Controller
         $main_transaksi = new MainTransaksi;
         $transaksi = new Transaksi;
         $main_transaksi = $main_transaksi::select('main_transaksi.id','main_transaksi.proses_id','proses.nama','main_transaksi.tanggal_transaksi'
-                            ,'main_transaksi.dibuat_oleh','main_transaksi.created_at');
+                            ,'main_transaksi.dibuat_oleh','main_transaksi.created_at','main_transaksi.diverifikasi_oleh','main_transaksi.diverifikasi_tanggal');
         $main_transaksi = $main_transaksi->where('main_transaksi.id','=',$id);
         $main_transaksi = $main_transaksi->join('proses', 'main_transaksi.proses_id', '=', 'proses.id');
         $main_transaksi = $main_transaksi->get();
@@ -173,6 +174,32 @@ class TransaksiController extends Controller
         // ];
 
         return view('quality_check')->with('data',$data); //with('main_transaksi',$main_transaksi)->with('transaksi',$transaksi)->with('komponen',$komponen);
+        // return view('transaksi',$transaksi);
+    }
+    public function verification_show($id){
+        // return $id;
+        $main_transaksi = new MainTransaksi;
+        $transaksi = new Transaksi;
+        $main_transaksi = $main_transaksi::select('main_transaksi.id','main_transaksi.proses_id','proses.nama','main_transaksi.tanggal_transaksi'
+                            ,'main_transaksi.dibuat_oleh','main_transaksi.created_at','main_transaksi.diverifikasi_oleh','main_transaksi.diverifikasi_tanggal');
+        $main_transaksi = $main_transaksi->where('main_transaksi.id','=',$id);
+        $main_transaksi = $main_transaksi->join('proses', 'main_transaksi.proses_id', '=', 'proses.id');
+        $main_transaksi = $main_transaksi->get();
+
+        $transaksi = $transaksi::where('main_transaksi_id','=',$id);
+        $transaksi = $transaksi->get();
+
+        $komponen = new Komponen;
+        $komponen = $komponen::all();
+        $data = array_merge(['main_transaksi'=>$main_transaksi,'transaksi'=>$transaksi,'komponen'=>$komponen]);
+        // return $data;
+        // $data = [
+        //     'name' => 'John Doe',
+        //     'age' => 30,
+        //     'email' => 'john@example.com',
+        // ];
+
+        return view('vendor.voyager.checklist.read')->with('data',$data); //with('main_transaksi',$main_transaksi)->with('transaksi',$transaksi)->with('komponen',$komponen);
         // return view('transaksi',$transaksi);
     }
 
@@ -196,6 +223,32 @@ class TransaksiController extends Controller
 
 
         return $this->index();
+
+    }
+    public function verification(Request $request){
+        $verify = MainTransaksi::find($request->input('main_transaksi_id'));
+        $verify->diverifikasi_oleh = Auth::user()->name;
+        $verify->diverifikasi_tanggal = Carbon::now();
+        $verify->save();
+        // return $request;
+        // $proses_id = $request->input('line');
+        // $tanggal_transaksi = $request->input('tanggal');
+        // $main_transaksi_id = $request->input('main_transaksi_id');
+        // $status = $request->status;
+        // foreach ($status as $key => $value) {
+        //     $transaksi = new Transaksi();
+        //     // return $transaksi = Transaksi::find($main_transaksi_id)->get();
+        //     $transaksi->tanggal_transaksi = $tanggal_transaksi;
+        //     $transaksi->proses_id = $proses_id;
+        //     $transaksi->main_transaksi_id = $main_transaksi_id;
+        //     $transaksi->komponen_id = $key;
+        //     $transaksi->status = $value;
+        //     $transaksi->dibuat_oleh = auth::user()->name;
+        //     $transaksi->save();
+        // }
+
+
+        return view('vendor.voyager.checklist');
 
     }
     /**

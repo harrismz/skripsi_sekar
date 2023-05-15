@@ -49,5 +49,8 @@ Route::group(['prefix' => 'admin'], function () {
     })->name('voyager.logout');
 
     Route::get('/userlogin',[ProsesController::class,'index']);
+    Route::get('checklist/{id}',[TransaksiController::class,'verification_show'])->name("voyager.verification.show");
+
+    Route::any('/checklist/verification',[TransaksiController::class,'verification'])->name("transaksi.verification");
     // Route::get('/transaksi/create',[TransaksiController::class, 'create'])->name("voyager.transaksi.create");
-});
+})->middleware('auth');
