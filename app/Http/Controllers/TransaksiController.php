@@ -258,8 +258,19 @@ class TransaksiController extends Controller
         // }
 
 
-        return view('voyager.checklist');
+        return view('vendor.voyager.checklist');
 
+    }
+    
+
+    public function jam(){
+        // Mendapatkan waktu saat ini
+        $currentTime = Carbon::now();
+
+        // Mendapatkan waktu dalam format tertentu
+        $formattedTime = $currentTime->format('H:i:s');
+
+        return $formattedTime;
     }
     /**
      * Display the specified resource.
@@ -294,7 +305,6 @@ class TransaksiController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
