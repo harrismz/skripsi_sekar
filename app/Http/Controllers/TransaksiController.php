@@ -248,7 +248,7 @@ class TransaksiController extends Controller
         // }
 
 
-        return view('vendor.voyager.checklist');
+        return view('voyager.checklist');
 
     }
     /**
