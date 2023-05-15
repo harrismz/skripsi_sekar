@@ -29,82 +29,7 @@ class TransaksiController extends Controller
         return view('transaksi',['dataProses'=>$data_proses]);
     }
 
-    /* public function index(Request $request){
-        $data = Transaksi::all();
-        $data_proses = Proses::all();
-        // return $data_proses;
-        return view('voyager::transaksi.create', [
-            // 'dataType' => $this->getDataType(),
-            'dataTypeContent' => $data,
-            'dataProses' => $data_proses,
-            // 'isModelTranslatable' => false,
-        ]);
-    }
 
-    public function getDataType(){
-        return DataType::where('slug','transaksi');
-    }
-
-    public function create(Request $request){
-        return parent::create($request);
-    }
-
-
-    public function index(Request $request)
-    {
-        $data = (new $this->model)->select();
-
-        if ($request->has('query')) {
-            $query = $request->get('query');
-            $query = json_decode($query, true); //true to set the array as associative
-            // $columns = $this->getColumnList();
-            // foreach ($query as $key => $value) {
-            //     if (\in_array($key, $columns)) {
-            //         if (isset($this->foreign[$key])) {
-            //             $data = $data->where($key, $value);
-            //         } else {
-            //             $data = $data->where($key, 'like', "%{$value}%");
-            //         }
-            //     }
-            // }
-        }
-
-
-
-        // order of column
-        if ($request->has('orderBy')) {
-            $ascending = $request->has('ascending') && ($request->get('ascending') == 1) ?
-                'asc' : 'desc';
-            $data = $data->orderBy($request->get('orderBy'), $ascending);
-        }
-
-        $data = $data->paginate($request->has('limit') ? $request->limit : 15);
-
-        // foreach ($data as $key => $value) {
-        //     $this->computeValue($value);
-        // }
-
-        // laravel collections
-        $results = collect([
-            'success' => true,
-            'request' => $request->all()
-        ]);
-
-        return  $results->merge($data);
-    } */
-
-
-    // public function create()
-    // {
-    //     //
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // return $request->report_date;
@@ -114,47 +39,23 @@ class TransaksiController extends Controller
             // 'dibuat_oleh' => auth::user()->name
         ]);
 
-        // $store = MainTransaksi::where('tanggal_transaksi',$request->report_date);
-        // $store = $store->where('proses_id',$request->lineproses);
-        // $store = $store->get();
 
-        // if(sizeof($store)==0){
-        //     $saving = new MainTransaksi();
-        //     $saving->tanggal_transaksi = $request->report_date;
-        //     $saving->proses_id = $request->lineproses;
-        //     $saving->save();
-        //     $lastId = $saving->id;
-        // }
-
-        // $lastId = $store[0]['id'];
-        // return $store;
         $check_komponen = Komponen::all();
 
-
-        // $store->tanggal_transaksi = $request->report_date;
-        // $store->proses_id = $request->lineproses;
-        // $store->dibuat_oleh = auth::user()->name;
-        // $store->save();
 
         $lastId = $store->id;
 
         $parameter = collect($request)->merge(collect($check_komponen));
         // return $this->show_quality_check($parameter,$lastId);
         return redirect()->route('transaksi.quality_check',['last_id'=>$lastId,'parameter'=> $parameter]);
-        // return $check_komponen;
-        // $data_ceklist = [];
-        // foreach ($check_komponen as $key => $value) {
 
-        // }
-
-        // $this->checklist($request,$check_komponen);
     }
 
     public function show_quality_check($id){
         // return $id;
         $main_transaksi = new MainTransaksi;
         $transaksi = new Transaksi;
-        $main_transaksi = $main_transaksi::select('main_transaksi.id','main_transaksi.proses_id','proses.nama','main_transaksi.tanggal_transaksi'
+        $main_transaksi = $main_transaksi::select('main_transaksi.id','main_transaksi.proses_id','proses.nama','proses.model','main_transaksi.tanggal_transaksi'
                             ,'main_transaksi.dibuat_oleh','main_transaksi.created_at','main_transaksi.diverifikasi_oleh','main_transaksi.diverifikasi_tanggal');
         $main_transaksi = $main_transaksi->where('main_transaksi.id','=',$id);
         $main_transaksi = $main_transaksi->join('proses', 'main_transaksi.proses_id', '=', 'proses.id');

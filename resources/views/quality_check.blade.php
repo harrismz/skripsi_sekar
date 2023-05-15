@@ -10,6 +10,7 @@
             <div class="card-header bg-info">
                 <div class="row">
                     <h3>Checklist {{ $data['main_transaksi'][0]['nama'] }}</h3>
+                    <p class="float-end"> Model : {{ $data['main_transaksi'][0]['model'] }}</p>
                     <p class="float-end"> tanggal : {{ $data['main_transaksi'][0]['tanggal_transaksi'] }}</p>
                 </div>
 
@@ -26,7 +27,7 @@
                         <thead>
                             <tr  class="text-center">
                                 <th>No</th>
-                                <th>Nama Item</th>
+                                <th>Nama Komponen</th>
                                 <th>Checklist</th>
                             </tr>
                         </thead>
