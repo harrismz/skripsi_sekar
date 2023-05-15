@@ -189,9 +189,19 @@ class TransaksiController extends Controller
         $transaksi = $transaksi::where('main_transaksi_id','=',$id);
         $transaksi = $transaksi->get();
 
+        $total_ok = new Transaksi;
+        $total_ok = $total_ok::where('main_transaksi_id','=',$id);
+        $total_ok = $total_ok->where('status','=','OK');
+        $total_ok = $total_ok->count();
+
+        $total_ng = new Transaksi;
+        $total_ng = $total_ng::where('main_transaksi_id','=',$id);
+        $total_ng = $total_ng->where('status','=','NG');
+        $total_ng = $total_ng->count();
+
         $komponen = new Komponen;
         $komponen = $komponen::all();
-        $data = array_merge(['main_transaksi'=>$main_transaksi,'transaksi'=>$transaksi,'komponen'=>$komponen]);
+        $data = array_merge(['main_transaksi'=>$main_transaksi,'transaksi'=>$transaksi,'komponen'=>$komponen,'total_ok'=>$total_ok,'total_ng'=>$total_ng]);
         // return $data;
         // $data = [
         //     'name' => 'John Doe',
